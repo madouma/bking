@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+$badge-medium: 17px;
+$badge-small: 10px;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+button mat-icon {
+  &.mat-badge-medium {
+    .mat-badge-content {
+      width: $badge-medium;
+      height: $badge-medium;
+      line-height: $badge-medium;
+    }
+
+    &.mat-badge-overlap.mat-badge-after {
+      .mat-badge-content {
+        right: -10px;
+      }
+    }
+
+    &.mat-badge-above .mat-badge-content {
+      top: -7px;
+    }
+  }
+
+  &.mat-badge-small {
+    .mat-badge-content {
+      width: $badge-small;
+      height: $badge-small;
+      line-height: $badge-small;
+    }
+
+    &.mat-badge-overlap.mat-badge-after {
+      .mat-badge-content {
+        right: 0;
+      }
+    }
+
+    &.mat-badge-above .mat-badge-content {
+      top: -1px;
+    }
+  }
+}

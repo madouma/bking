@@ -1,0 +1,37 @@
+<h1>File Upload</h1>
+
+<div class="create-container">
+  <section class="create-upload__left">
+    Upload area
+    <app-upload-files></app-upload-files>
+  </section>
+
+  <section class="create-upload__right">
+    <div class="create-upload__right--comment">
+      <div class="text-caption text--medium">
+        You can choose to upload more than one file at a time.
+      </div>
+
+      <div class="create-upload__right--comment">
+        <div class="wrapper">
+          <textarea placeholder="Add Comment"></textarea>
+          <div class="upload-detail">
+            <div class="container"><label>File Type</label> <span>Csv</span></div>
+            <div class="container"><label>File Compressed</label> <span>Yes</span></div>
+            <div class="container"><label>File Processing Mode</label> <span>Offline</span></div>
+          </div>
+        </div>
+      </div>
+
+      <button mat-button class="upload">Upload</button>
+      <button mat-button class="cancel">Cancel</button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="create-upload__right--rescent">
+      <!-- Turn into component -->
+      <h4 class="section-title">Recent Uploads</h4>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,17 @@
+@import './variables';
+
+.text-caption {
+  height: 48px;
+  line-height: 16px;
+  font: 500 20px/32px Roboto, 'Helvetica Neue', sans-serif;
+
+  color: $color-caption;
+}
+
+.text--medium {
+  font-size: 14px;
+}
+
+.section-title {
+  text-transform: uppercase;
+}

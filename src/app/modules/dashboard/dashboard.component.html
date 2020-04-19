@@ -1,0 +1,112 @@
+<mat-card>
+  <mat-card-header>
+    <button mat-raised-button class="upload" [routerLink]="['/campain/create']">
+      <mat-icon>file_upload</mat-icon>
+      Upload File
+    </button>
+    <mat-icon>create_new_folder</mat-icon>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <mat-drawer-container class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+        <div *ngIf="selectedCampain">
+          <h3>{{ selectedCampain.name }}</h3>
+        </div>
+      </mat-drawer>
+
+      <div class="example-sidenav-content">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Checkbox Column -->
+          <!-- <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox
+                (change)="$event ? masterToggle() : null"
+                [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                [aria-label]="checkboxLabel()"
+              >
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)"
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container> -->
+
+          <!-- File Name -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+
+          <!-- File Size -->
+          <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef>Size</th>
+            <td mat-cell *matCellDef="let element">{{ element.size }}</td>
+          </ng-container>
+
+          <!-- File Type -->
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef>Type</th>
+            <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+          </ng-container>
+
+          <!-- Last modified -->
+          <ng-container matColumnDef="lastModified">
+            <th mat-header-cell *matHeaderCellDef>Last modified</th>
+            <td mat-cell *matCellDef="let element">{{ element.lastModified | date }}</td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button (click)="quickView(row)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button (click)="edit(row)">
+                <mat-icon>mode_edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="delete(row)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="selection.toggle(row)"
+          ></tr>
+        </table>
+      </div>
+    </mat-drawer-container>
+  </mat-card-content>
+</mat-card>

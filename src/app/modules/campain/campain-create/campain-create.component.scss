@@ -1,0 +1,80 @@
+@import '../../../shared/styles/typography';
+@import '../../../shared/styles/variables';
+
+.create {
+  &-container {
+    display: flex;
+    height: 85%;
+  }
+
+  &-upload {
+    &__left {
+      height: inherit;
+      flex: 1;
+    }
+
+    &__right {
+      height: inherit;
+      flex: 2;
+      &--comment {
+        margin-bottom: 20px;
+
+        .wrapper {
+          display: flex;
+          margin-bottom: 20px;
+
+          textarea {
+            height: 7rem;
+            flex-basis: 60%;
+            outline: none;
+            border: none;
+            padding: 12px;
+            margin-right: 24px;
+            background: $silver-blue;
+          }
+
+          .upload-detail {
+            display: flex;
+            flex-basis: 34%;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .container {
+              display: flex;
+              label {
+                flex: 2;
+              }
+              span {
+                flex: 1;
+                color: $color-caption;
+              }
+            }
+          }
+        }
+      }
+
+      &--rescent {
+      }
+
+      mat-divider {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.mat-button {
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 0 35px;
+  margin-right: 12px;
+
+  &.upload {
+    background: $primary-blue;
+    color: #fff;
+  }
+
+  &.cancel {
+    color: $primary-blue;
+  }
+}
